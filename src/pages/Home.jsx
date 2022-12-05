@@ -1,16 +1,16 @@
 import React from "react";
-import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import { Container } from "./Styled";
+import Footer from "../components/Footer";
+import { Container } from "./Styled.js";
 
-function Login() {
+function Home() {
   return (
     <React.Fragment>
       <Navbar />
-      <Container>Login</Container>
+      <Container>Home</Container>
       <Footer />
     </React.Fragment>
   );
 }
 
-export default Login;
+export default Home;

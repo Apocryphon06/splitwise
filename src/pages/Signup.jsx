@@ -3,14 +3,14 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { Container } from "./Styled";
 
-function Login() {
+function Signup() {
   return (
     <React.Fragment>
       <Navbar />
-      <Container>Login</Container>
+      <Container>Signup</Container>
       <Footer />
     </React.Fragment>
   );
 }
 
-export default Login;
+export default Signup;
