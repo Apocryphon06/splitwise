@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Brand, Button, Container, Logo, Wrapper } from "./Styled";
 import logo from "./splitwise-logo.png";
 
+
+
 function Navbar() {
   return (
     <Container>

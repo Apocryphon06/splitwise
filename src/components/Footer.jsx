@@ -11,7 +11,7 @@ function Footer() {
             options={{ autoStart: true, loop: true }}
             onInit={(typewriter) => {
               typewriter
-                .typeString("Splitwise clone built using ReactJS")
+                .typeString("Splitwise clone built using React")
                 .pauseFor(2500)
                 .deleteAll()
                 .start();
