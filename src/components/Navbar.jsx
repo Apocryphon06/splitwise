@@ -19,18 +19,18 @@ function Navbar() {
           {true ? (
             <React.Fragment>
               <Link to="/login">
-                <Button bg="transparent" color="#20B2AA">
+                <Button bg="transparent" color="#5bc4a6">
                   Log in
                 </Button>
               </Link>
               <Link to="/register">
-                <Button bg="#20B2AA" color="white">
+                <Button bg="#5bc4a6" color="white">
                   Sign up
                 </Button>
               </Link>
             </React.Fragment>
           ) : (
-            <Button bg="#20B2AA" color="white">
+            <Button bg="#5bc4a6" color="white">
               Log out
             </Button>
           )}

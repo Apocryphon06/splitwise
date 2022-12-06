@@ -4,6 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 `;
 
 //Styled-Components for Login
@@ -12,7 +13,7 @@ export const LoginWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: left;
-  width: 30vw;
+  width: 35vw;
 
   margin: 50px 0;
   padding: 30px;
@@ -70,6 +71,9 @@ export const GButton = styled.button`
   border-radius: 5px;
   margin: 5px 0;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  &:hover {
+    box-shadow: none;
+  }
 `;
 
 export const Horiz = styled.div`
@@ -85,4 +89,105 @@ export const Divider = styled.div`
   justify-content: center;
   color: #dfdfdf;
   font-weight: bold;
+`;
+
+//Simple Navbar for homepage with account logged in
+
+export const NavWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100vw;
+  background-color: #5bc4a6;
+  padding: 5px;
+`;
+
+export const Brand = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+`;
+
+export const Logo = styled.img`
+  width: 25px;
+  height: 25px;
+  margin: 0 5px;
+`;
+
+export const Account = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 5px;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  }
+`;
+
+export const Name = styled.div`
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+`;
+
+export const Profile = styled.img`
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  background-color: whitesmoke;
+  margin-right: 5px;
+`;
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+`;
+
+//Menu Column
+export const VerticalMenu = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 33vw;
+`;
+
+export const Title = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: ${(props) => props.color};
+  padding: 5px;
+  border-left: ${(props) => props.select};
+  &:hover {
+    cursor: pointer;
+    background-color: #dfdfdf;
+  }
+`;
+
+//Content space
+export const ShowContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 33vw;
+  padding: 20px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+`;
+
+//Advertisement section
+export const Advertisement = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 33vw;
+  padding: 20px;
 `;
