@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
   height: 80px;
   width: 100%;
   display: flex;
+  position:fixed;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
@@ -47,16 +48,18 @@ export const Button = styled.button`
   }
 `;
 
+//Footer
+
 export const Foot = styled.div`
   display: flex;
   flex-direction: row;
   position: fixed;
   justify-content: center;
   align-items: center;
+  padding:10px;
   bottom: 0;
   width: 100%;
   background-color: whitesmoke;
-  height: 120px;
 `;
 
 export const Text = styled.div`

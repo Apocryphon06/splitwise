@@ -28,10 +28,10 @@ function Login() {
           <Label>Password</Label>
           <Input type="password" />
 
-          <Button bg="#20B2AA" color="white">
+          <Button bg="#5bc4a6" color="white">
             Log in
           </Button>
-          <Button bg="transparent" color="#20B2AA">
+          <Button bg="transparent" color="#5bc4a6">
             Forgot your password?
           </Button>
           <Divider>

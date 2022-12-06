@@ -34,16 +34,21 @@ function Home() {
       <Content>
         <VerticalMenu>
           <Title color="#5bc4a6">
-            <Logo src={logo} alt={logo} />
+            <Logo
+              style={{ width: "20px", height: "20px" }}
+              src={logo}
+              alt={logo}
+            />
             Dashboard
           </Title>
           <Title color="#ff652f">
             {" "}
-            <span style={{ margin: "0 5px", width: "25px", height: "25px" }}>
+            <span style={{ margin: "0 5px", width: "20px", height: "20px" }}>
               ⛿
             </span>{" "}
             Recent activity
           </Title>
+
           <span>filter by name input field</span>
           <span>All expenses column</span>
           <span>Groups add+ feature</span>

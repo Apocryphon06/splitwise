@@ -14,8 +14,8 @@ export const LoginWrapper = styled.div`
   flex-direction: column;
   align-items: left;
   width: 35vw;
-
-  margin: 50px 0;
+  position: fixed;
+  margin: 90px 0;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -107,8 +107,8 @@ export const Brand = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 600;
   color: white;
   cursor: pointer;
 `;
@@ -132,7 +132,7 @@ export const Account = styled.div`
 
 export const Name = styled.div`
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 600;
   color: white;
 `;
 
@@ -147,7 +147,7 @@ export const Profile = styled.img`
 export const Content = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100vw;
+  width: 70vw;
   height: 100vh;
   justify-content: center;
 `;
@@ -156,22 +156,22 @@ export const Content = styled.div`
 export const VerticalMenu = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  width: 33vw;
+  padding: 5px 20px;
+  width: 15vw;
 `;
 
 export const Title = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 600;
   color: ${(props) => props.color};
   padding: 5px;
   border-left: ${(props) => props.select};
   &:hover {
     cursor: pointer;
-    background-color: #dfdfdf;
+    background-color: whitesmoke;
   }
 `;
 
@@ -179,7 +179,7 @@ export const Title = styled.div`
 export const ShowContent = styled.div`
   display: flex;
   flex-direction: column;
-  width: 33vw;
+  width: 40vw;
   padding: 20px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 `;
@@ -188,6 +188,8 @@ export const ShowContent = styled.div`
 export const Advertisement = styled.div`
   display: flex;
   flex-direction: column;
-  width: 33vw;
-  padding: 20px;
+  width: 20vw;
+  padding: 15px;
 `;
+
+
