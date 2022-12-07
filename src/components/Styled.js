@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   height: 80px;
   width: 100%;
   display: flex;
-  position:fixed;
+  position: fixed;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
@@ -56,7 +56,7 @@ export const Foot = styled.div`
   position: fixed;
   justify-content: center;
   align-items: center;
-  padding:10px;
+  padding: 10px;
   bottom: 0;
   width: 100%;
   background-color: whitesmoke;
@@ -67,4 +67,56 @@ export const Text = styled.div`
   font-weight: bold;
   text-transform: uppercase;
   color: #515151;
+`;
+
+//Dashboard & Recents
+
+export const DHead = styled.div`
+  display: flex;
+  flex-direction: row;
+  background-color: #eeeeee;
+  padding: 20px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom:50px;
+`;
+
+export const DWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+`;
+
+export const DTitle = styled.div`
+  font-size: 24px;
+  font-weight: 600;
+`;
+
+export const DActions = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const DButton = styled.button`
+  padding: 10px;
+  border: none;
+  background-color: ${(props) => props.bg};
+  color: ${(props) => props.color};
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 10px;
+  &:hover {
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  }
+`;
+
+export const DBanner = styled.div`
+  font-size: 26px;
+`;
+
+export const InfoText = styled.div`
+  font-size: 18px;
+  color: #909090;
 `;

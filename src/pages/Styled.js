@@ -175,12 +175,38 @@ export const Title = styled.div`
   }
 `;
 
+export const MTitle = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #909090;
+  padding: 2px;
+  cursor: pointer;
+  background-color: ${(props) => props.bg};
+  &:hover {
+    background-color: #dfdfdf;
+  }
+  margin-bottom: 5px;
+`;
+
+export const Add = styled.button`
+  background-color: transparent;
+  border: none;
+  font-size: 14px;
+  color: #909090;
+  &:hover {
+    color: #5bc4a6;
+  }
+`;
+
 //Content space
 export const ShowContent = styled.div`
   display: flex;
   flex-direction: column;
   width: 40vw;
-  padding: 20px;
+
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 `;
 
@@ -191,5 +217,3 @@ export const Advertisement = styled.div`
   width: 20vw;
   padding: 15px;
 `;
-
-

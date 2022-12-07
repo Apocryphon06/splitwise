@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Account,
+  Add,
   Advertisement,
   Brand,
   Container,
   Content,
   Logo,
+  MTitle,
   Name,
   NavWrapper,
   Profile,
@@ -15,8 +17,21 @@ import {
   VerticalMenu,
 } from "./Styled";
 import logo from "./splitwise-logo.png";
+import Dashboard from "../components/Dashboard";
+import Recents from "../components/Recents";
+import Expenses from "../components/Expenses";
+
+import { Form, InputGroup } from "react-bootstrap";
 
 function Home() {
+  const [section, setSection] = useState("dashboard");
+
+  const renderSections = () => {
+    if (section === "dashboard") return <Dashboard />;
+    if (section === "recents") return <Recents />;
+    if (section === "all") return <Expenses />;
+  };
+
   return (
     <Container>
       <NavWrapper>
@@ -33,7 +48,7 @@ function Home() {
       </NavWrapper>
       <Content>
         <VerticalMenu>
-          <Title color="#5bc4a6">
+          <Title color="#5bc4a6" onClick={() => setSection("dashboard")}>
             <Logo
               style={{ width: "20px", height: "20px" }}
               src={logo}
@@ -41,7 +56,7 @@ function Home() {
             />
             Dashboard
           </Title>
-          <Title color="#ff652f">
+          <Title color="#ff652f" onClick={() => setSection("recents")}>
             {" "}
             <span style={{ margin: "0 5px", width: "20px", height: "20px" }}>
               ⛿
@@ -49,19 +64,31 @@ function Home() {
             Recent activity
           </Title>
 
-          <span>filter by name input field</span>
-          <span>All expenses column</span>
-          <span>Groups add+ feature</span>
-          <span>goa</span>
-          <span>Friends add+ feature</span>
-          <span>nishchal</span>
+          <InputGroup className="mb-3">
+            <InputGroup.Text id="basic-addon1">🔎</InputGroup.Text>
+            <Form.Control
+              size="sm"
+              placeholder="Filter by name"
+              aria-label="Filter by name"
+              aria-describedby="basic-addon1"
+            />
+          </InputGroup>
+          <MTitle bg="none" onClick={() => setSection("all")}>
+            {" "}
+            All expenses{" "}
+          </MTitle>
+
+          <MTitle bg="#eeeeee">
+            {" "}
+            Groups <Add>add+</Add>{" "}
+          </MTitle>
+
+          <MTitle bg="#eeeeee">
+            {" "}
+            Friends<Add>add+</Add>{" "}
+          </MTitle>
         </VerticalMenu>
-        <ShowContent>
-          <span>Dashboard</span>
-          <span>Recent activity</span>
-          <span>Groups</span>
-          <span>Friends</span>
-        </ShowContent>
+        <ShowContent>{renderSections()}</ShowContent>
         <Advertisement>
           <span> get splitwise pro</span>
           <span>
