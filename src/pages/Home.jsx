@@ -26,27 +26,75 @@ import Expenses from "../components/Expenses";
 
 import tag from "./tag.png";
 import user from "./user.png";
+import bullet from "./bullet.png";
+import flagIcon from "./flag.png";
 
-import { Form, InputGroup } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { Button, Form, InputGroup, Modal } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { addFriend, addGroup } from "../actions";
 
 function Home() {
   const [section, setSection] = useState("dashboard");
   const [gname, setGname] = useState("");
+  const [fname, setFname] = useState("");
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const renderSections = () => {
     if (section === "dashboard") return <Dashboard />;
     if (section === "recents") return <Recents />;
     if (section === "all") return <Expenses />;
     if (section === "group") return <Expenses gname={gname} />;
+    if (section === "friend") return <Expenses gname={fname} />;
   };
 
   const testData = useSelector((state) => state.test);
   const friends = useSelector((state) => state.friend);
   const groups = useSelector((state) => state.group);
 
+  const [fInput, setFinput] = useState("");
+  const dispatch = useDispatch();
+
+  const [flag, setFlag] = useState("");
+
   return (
     <Container>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>
+            {flag === "new_friend" ? <>Add Friend</> : <>New Group</>}
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <InputGroup className="mb-3">
+            <Form.Control
+              onChange={(e) => setFinput(e.target.value)}
+              placeholder={flag === "new_friend" ? "Enter Name" : "Group Name"}
+              aria-label={flag === "new_friend" ? "Enter Name" : "Group Name"}
+              aria-describedby="basic-addon1"
+            />
+          </InputGroup>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button
+            variant="primary"
+            onClick={() => {
+              if (flag === "new_friend") dispatch(addFriend(fInput));
+              if (flag === "new_group") dispatch(addGroup(fInput));
+              handleClose();
+            }}
+          >
+            Add
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
       <NavWrapper>
         <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
           <Brand>
@@ -71,9 +119,11 @@ function Home() {
           </Title>
           <Title color="#ff652f" onClick={() => setSection("recents")}>
             {" "}
-            <span style={{ margin: "0 5px", width: "20px", height: "20px" }}>
-              ⛿
-            </span>{" "}
+            <Logo
+              style={{ width: "20px", height: "20px", opacity: 0.5 }}
+              src={flagIcon}
+              alt={flagIcon}
+            />
             Recent activity
           </Title>
 
@@ -94,15 +144,24 @@ function Home() {
               onClick={() => setSection("all")}
             >
               {" "}
-              All expenses{" "}
+              <Icon src={bullet} alt={bullet} /> All expenses{" "}
             </MTitle>
           </ColumnWrapper>
 
           <ColumnWrapper>
-            <MTitle bg="whitesmoke">
+            <MTitle bg="whitesmoke" style={{ justifyContent: "space-between" }}>
               {" "}
-              Groups <Add>add+</Add>{" "}
+              Groups{" "}
+              <Add
+                onClick={() => {
+                  setFlag("new_group");
+                  handleShow();
+                }}
+              >
+                add+
+              </Add>{" "}
             </MTitle>
+
             {groups.map((item) => (
               <MItem
                 onClick={() => {
@@ -117,19 +176,25 @@ function Home() {
           </ColumnWrapper>
 
           <ColumnWrapper>
-            <MTitle bg="whitesmoke">
+            <MTitle bg="whitesmoke" style={{ justifyContent: "space-between" }}>
               {" "}
               Friends
               <Add
                 onClick={() => {
-                  alert("implement modal to add friend");
+                  setFlag("new_friend");
+                  handleShow();
                 }}
               >
                 add+
               </Add>{" "}
             </MTitle>
             {friends.map((item) => (
-              <MItem>
+              <MItem
+                onClick={() => {
+                  setFname(item);
+                  setSection("friend");
+                }}
+              >
                 {" "}
                 <Icon src={user} alt={user} /> {item}
               </MItem>

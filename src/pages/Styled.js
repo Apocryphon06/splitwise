@@ -179,7 +179,6 @@ export const MTitle = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
   font-size: 14px;
   color: #909090;
   padding: 2px;

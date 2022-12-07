@@ -13,6 +13,7 @@ function Dashboard() {
   useEffect(() => {
     document.title = "Dashboard - Splitwise";
   });
+
   return (
     <DWrapper>
       <DHead>

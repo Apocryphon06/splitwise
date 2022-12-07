@@ -3,13 +3,15 @@ export const test = () => {
     type: "TEST",
   };
 };
-export const addFriend = () => {
+export const addFriend = (name) => {
   return {
     type: "ADD_FRIEND",
+    payload: name,
   };
 };
-export const addGroup = () => {
+export const addGroup = (name) => {
   return {
     type: "ADD_GROUP",
+    payload: name,
   };
 };

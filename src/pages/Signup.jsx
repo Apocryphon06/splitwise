@@ -63,10 +63,17 @@ function Signup() {
           <SecondaryLabel>And here’s my password:</SecondaryLabel>
           <InputSecondary type="password" ref={pwordRef} />
           <FormAction>
-            <Button style={{fontSize:'22px',fontWeight:'600'}} bg="#ff652f" color="#fcfcfc" onClick={validateInput}>
+            <Button
+              style={{ fontSize: "22px", fontWeight: "600" }}
+              bg="#ff652f"
+              color="#fcfcfc"
+              onClick={validateInput}
+            >
               Sign me up!
             </Button>
-            <span style={{color:'#909090'}}>or</span>
+
+            <span style={{ color: "#909090" }}>or</span>
+
             <Button bg="#fcfcfc" color="black">
               Sign up with Google
             </Button>
