@@ -164,7 +164,7 @@ export const Title = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   color: ${(props) => props.color};
   padding: 5px;
@@ -183,12 +183,10 @@ export const MTitle = styled.div`
   font-size: 14px;
   color: #909090;
   padding: 2px;
-  cursor: pointer;
   background-color: ${(props) => props.bg};
   &:hover {
     background-color: #dfdfdf;
   }
-  margin-bottom: 5px;
 `;
 
 export const Add = styled.button`
@@ -216,4 +214,118 @@ export const Advertisement = styled.div`
   flex-direction: column;
   width: 20vw;
   padding: 15px;
+`;
+
+export const MItem = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 14px;
+  color: #909090;
+  cursor: pointer;
+  padding: 2px;
+  text-transform: capitalize;
+  background-color: ${(props) => props.bg};
+  &:hover {
+    background-color: #eeeeee;
+  }
+`;
+
+export const Icon = styled.img`
+  width: 20px;
+  height: 20px;
+  opacity: 0.5;
+  margin-right: 5px;
+`;
+
+export const ColumnWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+`;
+
+//Register or Sign up
+
+export const RContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const RWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 50px 0;
+`;
+
+export const Image = styled.img`
+  width: 200px;
+  height: 200px;
+  margin-right: 30px;
+`;
+
+export const Form = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 400px;
+`;
+
+export const FormHeading = styled.div`
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 5px 0;
+  color: #909090;
+`;
+
+export const FormLabel = styled.div`
+  font-size: 26px;
+  margin: 5px 0;
+`;
+
+export const FormInput = styled.input`
+  padding: 20px;
+  background: transparent;
+  border-radius: 5px;
+  border: none;
+  border: 1px solid #dfdfdf;
+  margin-bottom: 10px;
+  font-size: 15px;
+  letter-spacing: 2px;
+  font-size: 18px;
+`;
+
+export const SecondaryLabel = styled.div`
+  font-size: 20px;
+  margin: 5px 0;
+`;
+
+export const InputSecondary = styled.input`
+  padding: 15px;
+  background: transparent;
+  border-radius: 5px;
+  border: none;
+  border: 1px solid #dfdfdf;
+  margin-bottom: 10px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-size: 16px;
+`;
+
+export const FormAction = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const ErrorBanner = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #cc4455;
+  color: #fcfcfc;
 `;

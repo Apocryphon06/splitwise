@@ -5,9 +5,12 @@ import {
   Add,
   Advertisement,
   Brand,
+  ColumnWrapper,
   Container,
   Content,
+  Icon,
   Logo,
+  MItem,
   MTitle,
   Name,
   NavWrapper,
@@ -21,16 +24,26 @@ import Dashboard from "../components/Dashboard";
 import Recents from "../components/Recents";
 import Expenses from "../components/Expenses";
 
+import tag from "./tag.png";
+import user from "./user.png";
+
 import { Form, InputGroup } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 function Home() {
   const [section, setSection] = useState("dashboard");
+  const [gname, setGname] = useState("");
 
   const renderSections = () => {
     if (section === "dashboard") return <Dashboard />;
     if (section === "recents") return <Recents />;
     if (section === "all") return <Expenses />;
+    if (section === "group") return <Expenses gname={gname} />;
   };
+
+  const testData = useSelector((state) => state.test);
+  const friends = useSelector((state) => state.friend);
+  const groups = useSelector((state) => state.group);
 
   return (
     <Container>
@@ -73,20 +86,55 @@ function Home() {
               aria-describedby="basic-addon1"
             />
           </InputGroup>
-          <MTitle bg="none" onClick={() => setSection("all")}>
-            {" "}
-            All expenses{" "}
-          </MTitle>
 
-          <MTitle bg="#eeeeee">
-            {" "}
-            Groups <Add>add+</Add>{" "}
-          </MTitle>
+          <ColumnWrapper>
+            <MTitle
+              bg="none"
+              style={{ cursor: "pointer" }}
+              onClick={() => setSection("all")}
+            >
+              {" "}
+              All expenses{" "}
+            </MTitle>
+          </ColumnWrapper>
 
-          <MTitle bg="#eeeeee">
-            {" "}
-            Friends<Add>add+</Add>{" "}
-          </MTitle>
+          <ColumnWrapper>
+            <MTitle bg="whitesmoke">
+              {" "}
+              Groups <Add>add+</Add>{" "}
+            </MTitle>
+            {groups.map((item) => (
+              <MItem
+                onClick={() => {
+                  setGname(item);
+                  setSection("group");
+                }}
+              >
+                {" "}
+                <Icon src={tag} alt={tag} /> {item}
+              </MItem>
+            ))}
+          </ColumnWrapper>
+
+          <ColumnWrapper>
+            <MTitle bg="whitesmoke">
+              {" "}
+              Friends
+              <Add
+                onClick={() => {
+                  alert("implement modal to add friend");
+                }}
+              >
+                add+
+              </Add>{" "}
+            </MTitle>
+            {friends.map((item) => (
+              <MItem>
+                {" "}
+                <Icon src={user} alt={user} /> {item}
+              </MItem>
+            ))}
+          </ColumnWrapper>
         </VerticalMenu>
         <ShowContent>{renderSections()}</ShowContent>
         <Advertisement>
@@ -96,6 +144,7 @@ function Home() {
             search, and more. Learn more
           </span>
           <span>learn more button</span>
+          <span> data from redux store: {testData}</span>
         </Advertisement>
       </Content>
     </Container>

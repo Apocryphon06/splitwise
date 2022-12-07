@@ -78,7 +78,7 @@ export const DHead = styled.div`
   padding: 20px;
   align-items: center;
   justify-content: space-between;
-  margin-bottom:50px;
+  margin-bottom: 50px;
 `;
 
 export const DWrapper = styled.div`
@@ -90,6 +90,7 @@ export const DWrapper = styled.div`
 export const DTitle = styled.div`
   font-size: 24px;
   font-weight: 600;
+  text-transform: capitalize;
 `;
 
 export const DActions = styled.div`
@@ -120,3 +121,4 @@ export const InfoText = styled.div`
   font-size: 18px;
   color: #909090;
 `;
+

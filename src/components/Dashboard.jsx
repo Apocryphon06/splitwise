@@ -11,7 +11,7 @@ import {
 
 function Dashboard() {
   useEffect(() => {
-    document.title = "Dashboard";
+    document.title = "Dashboard - Splitwise";
   });
   return (
     <DWrapper>
