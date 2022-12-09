@@ -233,8 +233,8 @@ export const MItem = styled.div`
 export const Icon = styled.img`
   width: 20px;
   height: 20px;
-  opacity: 0.5;
   margin-right: 5px;
+  filter: opacity(0.5) drop-shadow(0 0 0 gray);
 `;
 
 export const ColumnWrapper = styled.div`

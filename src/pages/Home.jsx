@@ -19,6 +19,9 @@ import {
   Title,
   VerticalMenu,
 } from "./Styled";
+
+import { Button, Form, InputGroup, Modal } from "react-bootstrap";
+
 import logo from "./splitwise-logo.png";
 import Dashboard from "../components/Dashboard";
 import Recents from "../components/Recents";
@@ -29,7 +32,6 @@ import user from "./user.png";
 import bullet from "./bullet.png";
 import flagIcon from "./flag.png";
 
-import { Button, Form, InputGroup, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { addFriend, addGroup } from "../actions";
 
@@ -51,7 +53,6 @@ function Home() {
     if (section === "friend") return <Expenses gname={fname} />;
   };
 
-  const testData = useSelector((state) => state.test);
   const friends = useSelector((state) => state.friend);
   const groups = useSelector((state) => state.group);
 
@@ -79,11 +80,14 @@ function Home() {
           </InputGroup>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button
+            style={{ backgroundColor: "#ff652f", border: "none", fontWeight:600 }}
+            onClick={handleClose}
+          >
             Close
           </Button>
           <Button
-            variant="primary"
+            style={{ backgroundColor: "#5ac5a6", border: "none", fontWeight:600  }}
             onClick={() => {
               if (flag === "new_friend") dispatch(addFriend(fInput));
               if (flag === "new_group") dispatch(addGroup(fInput));
@@ -209,7 +213,6 @@ function Home() {
             search, and more. Learn more
           </span>
           <span>learn more button</span>
-          <span> data from redux store: {testData}</span>
         </Advertisement>
       </Content>
     </Container>

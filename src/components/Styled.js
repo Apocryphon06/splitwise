@@ -31,6 +31,7 @@ export const Logo = styled.img`
   width: 40px;
   height: 40px;
   margin-right: 5px;
+  cursor: pointer;
 `;
 
 export const Button = styled.button`
@@ -78,7 +79,6 @@ export const DHead = styled.div`
   padding: 20px;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 50px;
 `;
 
 export const DWrapper = styled.div`
@@ -114,6 +114,7 @@ export const DButton = styled.button`
 `;
 
 export const DBanner = styled.div`
+  margin-top: 50px;
   font-size: 26px;
 `;
 
@@ -122,3 +123,66 @@ export const InfoText = styled.div`
   color: #909090;
 `;
 
+export const MInput = styled.input`
+  padding: 5px;
+  background-color: transparent;
+  border: none;
+  font-size: 14px;
+  width: fit-content;
+  width: 20vw;
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const InputContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const Currency = styled.div`
+  display: flex;
+  font-weight: bold;
+  align-items: center;
+`;
+
+export const CText = styled.div`
+  flex-direction: row;
+  font-size: 22px;
+  padding: 2px;
+`;
+
+export const InfoLabel = styled.div`
+  margin-top: 10px;
+  font-size: 18px;
+  color: #515151;
+  text-align: center;
+`;
+
+export const InputButton = styled.button`
+  border: none;
+  font-size: 14px;
+  background-color: whitesmoke;
+  color: #515151;
+  padding: 2px 20px;
+  border-radius: 90px;
+  border: 1px solid #dfdfdf;
+  &:hover {
+    background-color: #dfdfdf;
+  }
+`;
+
+export const ButtonGroup = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10px;
+`;
