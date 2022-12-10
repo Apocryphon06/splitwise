@@ -186,3 +186,18 @@ export const ButtonGroup = styled.div`
   justify-content: center;
   margin: 10px;
 `;
+
+export const DateInput = styled.input`
+  background-color: transparent;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+`;
+export const FileInput = styled.input`
+  background-color: transparent;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+`;

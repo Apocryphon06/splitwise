@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Modal } from "react-bootstrap";
+import { Dropdown, Modal } from "react-bootstrap";
 import {
   DButton,
   DActions,
@@ -16,9 +16,11 @@ import {
   InfoLabel,
   InputButton,
   ButtonGroup,
+  DateInput,
 } from "./Styled";
 
 import notebook from "./notebook.png";
+import { useSelector } from "react-redux";
 
 function Dashboard() {
   useEffect(() => {
@@ -29,13 +31,15 @@ function Dashboard() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const listData = useSelector((state) => state.expense);
+
+  const groups = useSelector((state) => state.group);
+  const friends = useSelector((state) => state.friend);
+
   return (
     <DWrapper>
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header
-          closeButton
-          style={{ backgroundColor: "#5ac5b6"}}
-        >
+        <Modal.Header closeButton style={{ backgroundColor: "#5ac5b6" }}>
           <Modal.Title style={{ color: "#fcfcfc", fontWeight: 600 }}>
             Add an expense
           </Modal.Title>
@@ -48,9 +52,16 @@ function Dashboard() {
             With <b>you</b> and:
           </span>{" "}
           <MInput
+            list="browsers"
             style={{ fontSize: "16px" }}
             placeholder="Enter names or email addresses"
           />{" "}
+          <InputButton>add</InputButton>
+          <datalist id="browsers">
+            {friends.map((friend) => (
+              <option value={friend} />
+            ))}
+          </datalist>
         </Modal.Body>
 
         <Modal.Body>
@@ -60,6 +71,7 @@ function Dashboard() {
               src={notebook}
               alt={notebook}
             />
+            <span style={{ marginTop: "35px" }}>₹</span>
             <InputWrapper>
               <MInput
                 style={{
@@ -92,13 +104,39 @@ function Dashboard() {
 
           <ButtonGroup>
             <InputButton style={{ marginRight: 10 }}>
-              December 9, 2022
+              <DateInput type="date" onChange={(e) => alert(e.target.value)} />
             </InputButton>
             <InputButton>Add images/notes</InputButton>
           </ButtonGroup>
 
           <ButtonGroup>
-            <InputButton>No group</InputButton>
+            <Dropdown>
+              <Dropdown.Toggle
+                style={{
+                  backgroundColor: "whitesmoke",
+                  color: "#515151",
+                  fontSize:'14px',
+                  border: "1px solid #dfdfdf",
+                  padding: "0px 20px",
+                  borderRadius: "90px",
+                }}
+                id="dropdown-basic"
+              >
+                No group
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                {groups.map((group) => (
+                  <Dropdown.Item
+                    href="#/action-1"
+                    onClick={() => alert(group)}
+                    style={{ textTransform: "capitalize" }}
+                  >
+                    {group}
+                  </Dropdown.Item>
+                ))}
+              </Dropdown.Menu>
+            </Dropdown>
           </ButtonGroup>
         </Modal.Body>
 
@@ -138,7 +176,17 @@ function Dashboard() {
           </InfoText>
         </React.Fragment>
       ) : (
-        <p>show list of expenses</p>
+        <div style={{ textAlign: "left" }}>
+          <ul>
+            {listData.map((item) => (
+              <React.Fragment>
+                <li>
+                  Hrithik paid {item.amount} in "{item.group}"
+                </li>
+              </React.Fragment>
+            ))}
+          </ul>
+        </div>
       )}
     </DWrapper>
   );

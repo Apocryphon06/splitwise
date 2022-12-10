@@ -1,4 +1,4 @@
-const initialState = ["hrithik c", "mahesh kestur"];
+const initialState = ["Hrithik C", "Mahesh Kestur"];
 
 const friendsReducer = (state = initialState, action) => {
   switch (action.type) {
