@@ -18,8 +18,12 @@ export const addGroup = (name) => {
   };
 };
 
-export const addExpense = () => {
+export const addExpense = (description, amount, date, group) => {
   return {
     type: "ADD_EXPENSE",
+    description: description,
+    amount: amount,
+    date: date,
+    group: group,
   };
 };

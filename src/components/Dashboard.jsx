@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Dropdown, Modal } from "react-bootstrap";
 import {
   DButton,
@@ -20,7 +20,10 @@ import {
 } from "./Styled";
 
 import notebook from "./notebook.png";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
+import { addExpense } from "../actions";
+import ExpenseList from "./ExpenseList";
 
 function Dashboard() {
   useEffect(() => {
@@ -35,6 +38,14 @@ function Dashboard() {
 
   const groups = useSelector((state) => state.group);
   const friends = useSelector((state) => state.friend);
+
+  const dispatch = useDispatch();
+
+  const descRef = useRef();
+  const amountRef = useRef();
+  const dateRef = useRef();
+
+  const [Igroup, setIgroup] = useState();
 
   return (
     <DWrapper>
@@ -80,6 +91,7 @@ function Dashboard() {
                   width: "200px",
                 }}
                 type="text"
+                ref={descRef}
                 placeholder="Enter a description"
               />
 
@@ -93,6 +105,7 @@ function Dashboard() {
                   }}
                   type="text"
                   placeholder="0.00"
+                  ref={amountRef}
                 />
               </Currency>
             </InputWrapper>
@@ -104,7 +117,11 @@ function Dashboard() {
 
           <ButtonGroup>
             <InputButton style={{ marginRight: 10 }}>
-              <DateInput type="date" onChange={(e) => alert(e.target.value)} />
+              <DateInput
+                type="date"
+                ref={dateRef}
+                onChange={(e) => alert(e.target.value)}
+              />
             </InputButton>
             <InputButton>Add images/notes</InputButton>
           </ButtonGroup>
@@ -115,7 +132,7 @@ function Dashboard() {
                 style={{
                   backgroundColor: "whitesmoke",
                   color: "#515151",
-                  fontSize:'14px',
+                  fontSize: "14px",
                   border: "1px solid #dfdfdf",
                   padding: "0px 20px",
                   borderRadius: "90px",
@@ -129,7 +146,7 @@ function Dashboard() {
                 {groups.map((group) => (
                   <Dropdown.Item
                     href="#/action-1"
-                    onClick={() => alert(group)}
+                    onClick={() => setIgroup(group)}
                     style={{ textTransform: "capitalize" }}
                   >
                     {group}
@@ -149,6 +166,20 @@ function Dashboard() {
             color="#fcfcfc"
             onClick={() => {
               handleClose();
+              dispatch(
+                addExpense(
+                  descRef.current.value,
+                  amountRef.current.value,
+                  dateRef.current.value,
+                  Igroup
+                )
+              );
+              console.log(
+                descRef.current.value,
+                amountRef.current.value,
+                dateRef.current.value,
+                Igroup
+              );
             }}
           >
             Save
@@ -176,17 +207,16 @@ function Dashboard() {
           </InfoText>
         </React.Fragment>
       ) : (
-        <div style={{ textAlign: "left" }}>
-          <ul>
-            {listData.map((item) => (
-              <React.Fragment>
-                <li>
-                  Hrithik paid {item.amount} in "{item.group}"
-                </li>
-              </React.Fragment>
-            ))}
-          </ul>
-        </div>
+        <React.Fragment>
+          {listData.map((item) => (
+            <ExpenseList
+              description={item.description}
+              amount={item.amount}
+              date={item.date}
+              group={item.group}
+            />
+          ))}
+        </React.Fragment>
       )}
     </DWrapper>
   );
