@@ -10,7 +10,7 @@ const initialState = [
     description: "car fuel - 1",
     amount: 3800,
     date: "2022-11-3",
-    group: "goa",
+    group: "Goa",
   },
 ];
 

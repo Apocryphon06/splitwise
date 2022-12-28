@@ -1,4 +1,4 @@
-const initialState = ["goa", "D2D"];
+const initialState = ["Goa", "D2D"];
 
 const groupReducer = (state = initialState, action) => {
   switch (action.type) {

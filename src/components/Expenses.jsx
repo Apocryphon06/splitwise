@@ -25,8 +25,11 @@ import ExpenseList from "./ExpenseList";
 
 function Expenses({ gname }) {
   useEffect(() => {
-    document.title = "Expenses - Splitwise";
-    console.log(currentListData);
+    if (gname) {
+      document.title = `${gname} - Splitwise`;
+    } else {
+      document.title = "Expenses - Splitwise";
+    }
   });
   const [show, setShow] = useState(false);
 
@@ -45,10 +48,6 @@ function Expenses({ gname }) {
   const dateRef = useRef();
 
   const [Igroup, setIgroup] = useState();
-
-  const currentListData = listData.filter(function (e1) {
-    return e1.group === gname;
-  });
 
   return (
     <DWrapper>
